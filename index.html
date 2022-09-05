@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>CSS Form Validations</title>
+</head>
+<body>
+	<div class="informations">
+	</div>
+	<form action='/' method="post">
+		<div class="user-area">
+			<label for="iuser">Username</label>
+			<input required type="text" name="iuser" class="iuser" id="" placeholder="Username" autocomplete="off" pattern=".{3,}">
+		</div>
+		
+		<div class="email-area">
+			<label for="iemail">Email</label>
+			<input required type="email" name="iemail" id="" placeholder="Email" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+		</div>
+
+		<div class="password-area">
+			<label for="ipassword">Password</label>
+			<input type="password" name="ipassword" id="" placeholder="Password" autocomplete="off" pattern=".{8,}" required>
+		</div>
+		<div class="submit-area">
+			<button type="submit" class="submit">Submit</button>
+		</div>
+	</form>
+</body>
+</html>

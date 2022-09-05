@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --invalid: red;
+    --focus: rgba(0, 238, 255, 0.705);
+    --valid: rgb(6, 134, 96);
+    --blue: hsl(215 100% 53%);
+    --blur: rgba(116, 116, 116, 0.623);
+}
+
+/* Choose Color Scheme */
+/* :where(html) {
+    color-scheme: dark;
+} */
+
+body {
+    height: 100vh;
+    width: 100%;
+
+    background-color: #222;
+    font-family: sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    /* height: 300px; */
+    width: 400px;
+    background: #333;
+
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    padding-bottom: 18px;
+    gap: 12px;
+    border-radius: 5px;
+}
+
+form > div {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+}
+
+form:has(div):has(label) label{
+    font-size: 13px;
+    font-weight: bold;
+    color: #ccc;
+    padding-left: 1px;
+}
+
+form:has(div):has(input) input {
+    /* height: 50px; */
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    border: 2px solid var(--color, var(--blur));
+    border-radius: 5px;
+    transition: border 0.3s linear;
+}
+
+input::placeholder {
+    color: transparent
+}
+
+input:placeholder-shown {
+    --color: var(--blur);
+}
+
+div:has(.submit) {
+    height: 55px;
+}
+
+button.submit {
+    width: 130px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: rgb(5, 74, 102);
+    color: #ccc;
+    cursor: pointer;
+    transition: opacity 0.3s linear;
+}
+
+.submit:hover {
+    opacity: 0.6;
+}
+
+div:has(:invalid) {
+    --color: var(--invalid);
+}
+
+div:has(:invalid:not(:focus)) {
+    animation: shake 0.8s alternate;
+}
+
+div:has(:focus) {
+    --color: var(--focus);
+}
+
+div:has(:valid) {
+    --color: var(--valid);
+}
+
+/* div:has(:placeholder-shown) {
+    background: yellow;
+} */
+
+div:has(:placeholder-shown:not(:focus)) {
+    animation: none;
+}
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    20%, 40%, 60%, 80% {
+        transform: translateX(-4%);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(4%);
+    }
+}
